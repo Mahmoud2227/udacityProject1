@@ -6,6 +6,7 @@
 const navBarList = document.getElementById("navbar__list");
 const sections = document.querySelectorAll("section");
 const header = document.querySelector(".page__header");
+const fragment = new DocumentFragment();
 let isScrolling;
 
 /**
@@ -31,21 +32,20 @@ function createListItem() {
     for (let section of sections) {
         const listItem = document.createElement("li");
         listItem.innerHTML = `<a class="menu__link" href="#${section.id}">${section.getAttribute("data-nav")}</a>`;
-        navBarList.appendChild(listItem);
+        fragment.appendChild(listItem);
     }
+    navBarList.appendChild(fragment)
 }
 
-// Add class 'active' to section when near top of viewport
+// Add class 'your-active-class' to section when near top of viewport
 function toggleSectionClass() {
     sections.forEach((section) => {
-        // if (sectionPositon(section).top >= 0 && +sectionPositon(section).top < section.offsetHeight) {
-        //     sections.forEach((sec) => sec.classList.remove("your-active-class"));
-        //     section.classList.add("your-active-class");
-        // }
-        if (sectionPositon(section).top >= 0 && +sectionPositon(section).top < section.offsetHeight - 80) {
-            sections.forEach((sec) => sec.removeAttribute("class"));
+        if (sectionPositon(section).top >= 0 && sectionPositon(section).top < section.offsetHeight - 80) {
+            // sections.forEach((sec) => sec.removeAttribute("class"));
             section.classList.add("your-active-class");
         }
+        else
+            section.classList.remove("your-active-class");
     });
 }
 
@@ -86,7 +86,7 @@ function NoScrollHideNav() {
  */
 
 // Build menu
-createListItem();
+document.addEventListener("DOMContentLoaded", createListItem())
 // Scroll to section on link click
 scrollToSection();
 // Set sections as active
