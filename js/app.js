@@ -35,7 +35,7 @@ function createListItem() {
     }
 }
 
-// Add class 'active' to section when near top of viewport
+// Add class 'your-active-class' to section when near top of viewport
 function toggleSectionClass() {
     sections.forEach((section) => {
         // if (sectionPositon(section).top >= 0 && +sectionPositon(section).top < section.offsetHeight) {
