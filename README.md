@@ -1,15 +1,19 @@
-##Udacity Project 1
+<h1>Udacity Project 1</h1>
 This is the first project for udacity web development professional track
 
-## Technologies
+<h3>Technologies</h3>
 This project made with:
-1-html
-2-css
-3-vanilla javascript
+<ol>
+  <li>html
+  <li>css
+  <li>vanilla javascript
+</ol>
 
-## Features
-1- The page is resposive and works well in small and medium screens
-2- the navbar is dynamicly generated using javascript
-3- the section that the user read is highlighted
-4- the navbar allow the user to scroll to the contents of the page without the need of archor tag
-5- the navbar is hidden when the user isn't scrolling
+<h3>Features</h3>
+<ol>
+  <li> The page is resposive and works well in small and medium screens</li>
+  <li> the navbar is dynamicly generated using javascript</li>
+  <li> the section that the user read is highlighted</li>
+  <li> the navbar allow the user to scroll to the contents of the page without the need of archor tag</li>
+  <li> the navbar is hidden when the user isn't scrolling</li>
+</ol>
