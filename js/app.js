@@ -31,7 +31,7 @@ function sectionPositon(element) {
 function createListItem() {
     for (let section of sections) {
         const listItem = document.createElement("li");
-        listItem.innerHTML = `<a class="menu__link" href="#${section.id}">${section.getAttribute("data-nav")}</a>`;
+        listItem.innerHTML = `<a class="menu__link">${section.getAttribute("data-nav")}</a>`;
         fragment.appendChild(listItem);
     }
     navBarList.appendChild(fragment)
@@ -42,12 +42,12 @@ function toggleSectionClass ()
 {
     const links = document.querySelectorAll(".navbar__menu .menu__link")
     sections.forEach((section) => {
-        if (sectionPositon(section).top >= 0 && sectionPositon(section).top < section.offsetHeight - 80) {
+        if (sectionPositon(section).top >= 0 && sectionPositon(section).top < section.offsetHeight - 100) {
             // sections.forEach((sec) => sec.removeAttribute("class"));
             section.classList.add( "your-active-class" );
             links.forEach( ( link ) =>
             {
-                if ( link.getAttribute( "href" ) === `#${ section.id }` )
+                if ( link.textContent === section.getAttribute("data-nav") )
                 {
                     link.classList.add("activeLink")
                 }
@@ -65,9 +65,9 @@ function scrollToSection() {
     header.addEventListener("click", function (event) {
         event.preventDefault();
         sections.forEach((section) => {
-            if (event.target.getAttribute("href").substring(1) === section.getAttribute("id")) {
+            if (event.target.textContent === section.getAttribute("data-nav")) {
                 window.scrollTo({
-                    top: section.offsetTop,
+                    top: section.offsetTop-100,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -86,7 +86,7 @@ function NoScrollHideNav() {
         isScrolling = setTimeout(function () {
             // Run the callback
             header.classList.add("hidden");
-        }, 2000);
+        }, 5000);
         header.classList.remove("hidden");
     });
 }
