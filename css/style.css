@@ -81,6 +81,12 @@ section {
     transition: ease 0.3s all;
 }
 
+.navbar__menu .activeLink {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
 @media only screen and (max-width: 35em){
     .navbar__menu .menu__link{
         font-size: 0.8em;

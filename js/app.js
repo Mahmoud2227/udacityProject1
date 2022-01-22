@@ -38,15 +38,26 @@ function createListItem() {
 }
 
 // Add class 'your-active-class' to section when near top of viewport
-function toggleSectionClass() {
+function toggleSectionClass ()
+{
+    const links = document.querySelectorAll(".navbar__menu .menu__link")
     sections.forEach((section) => {
         if (sectionPositon(section).top >= 0 && sectionPositon(section).top < section.offsetHeight - 80) {
             // sections.forEach((sec) => sec.removeAttribute("class"));
-            section.classList.add("your-active-class");
+            section.classList.add( "your-active-class" );
+            links.forEach( ( link ) =>
+            {
+                if ( link.getAttribute( "href" ) === `#${ section.id }` )
+                {
+                    link.classList.add("activeLink")
+                }
+                else
+                    link.classList.remove("activeLink")
+            })
         }
         else
             section.classList.remove("your-active-class");
-    });
+    } );
 }
 
 // Scroll to anchor ID using scrollTO event
@@ -93,3 +104,5 @@ scrollToSection();
 document.addEventListener("scroll", toggleSectionClass);
 // Hide the header on no scroll
 NoScrollHideNav();
+
+console.log(document.querySelectorAll(".navbar__menu .menu__link"))
